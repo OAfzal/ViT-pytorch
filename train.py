@@ -191,6 +191,7 @@ def train(args, model):
                               dynamic_ncols=True,
                               disable=args.local_rank not in [-1, 0])
         for step, batch in enumerate(epoch_iterator):
+            print(batch)
             batch = tuple(t.to(args.device) for t in batch)
             x, y = batch
             loss = model(x, y)
